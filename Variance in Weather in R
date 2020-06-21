@@ -1,0 +1,48 @@
+Variance in Weather in R
+You’re planning a trip to London and want to get a sense of the best time of the year to visit. Luckily, you got your hands on a dataset from 2015 that contains over 39,000 data points about weather conditions in London. Surely, with this much information, you can discover something useful about when to make your trip!
+---
+title: "Standard Deviation"
+output: html_notebook
+---
+```{r message=FALSE, warning=FALSE, error=TRUE}
+library(readr)
+library(dplyr)
+```
+
+```{r error=TRUE}
+load("project.Rda")
+```
+
+```{r error=TRUE}
+# Change these variables to be the standard deviation of each dataset.
+# Inspect Data
+head(london_data)
+nrow(london_data)
+temp <- london_data$TemperatureC
+average_temp <- mean(temp)
+
+# Variance and SD for the year
+temperature_var <- var(temp)
+temperature_standard_deviation <- sd(temp)
+
+#Inspect once again
+
+
+# Get monthly temperature average
+june <- london_data %>%
+  filter(month == "06")
+july <- london_data %>%
+  filter(month == "07")
+
+june_temp <- mean(june$TemperatureC)
+june_temp
+july_temp <- mean(july$TemperatureC)
+july_temp
+
+june_sd <- sd(june$TemperatureC)
+june_sd
+july_sd <- sd(july$TemperatureC)
+july_sd
+
+
+```
